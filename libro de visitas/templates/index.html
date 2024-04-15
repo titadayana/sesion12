@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libro de Visitas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>LIBRO DE VISITAS</h1>
+        <form method="POST" action="/">
+            <label for="nombre">Nombre:</label><br>
+            <input type="text" id="nombre" name="nombre" required><br>
+            <label for="mensaje">Mensaje:</label><br>
+            <textarea id="mensaje" name="mensaje" required></textarea><br>
+            <button type="submit">Enviar</button>
+        </form>
+        <div class="mensajes">
+            <h2>Mensajes</h2>
+            <ul>
+                {% for mensaje in mensajes %}
+                <li><strong>{{ mensaje[1] }}:</strong> {{ mensaje[2] }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
